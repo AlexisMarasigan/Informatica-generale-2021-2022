@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <string>
+#include <random>
 #include "board.h"
 #include "move.h"
 #include "game.h"
@@ -59,7 +60,13 @@ namespace player
          */
         move::Move getMoveFromSit(game::Situation situation)
         {
-            move::Move m; // Si noti che una mossa inizializzata in questo modo è di tipo RESIGN (mossa vuota)
+            move::Move m;
+            if (situation.pieRule())
+                m.kind = move::MoveKind::SWAP;
+            else
+            {
+                m = getMoveFromSit(situation.next(m));
+            }
             return m;
         }
     };
