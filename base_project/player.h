@@ -48,7 +48,7 @@ namespace player {
          * @return std::string matricole separate da uno spazio
          */
         std::string getIDs() {
-            std::string matricola_1="";
+            std::string matricola_1="1950540";
             std::string matricola_2="";
             return matricola_1 + " " + matricola_2;
         }
