@@ -48,7 +48,11 @@ namespace player {
          * @return std::string matricole separate da uno spazio
          */
         std::string getIDs() {
+<<<<<<< HEAD
             std::string matricola_1="";
+=======
+            std::string matricola_1="1950540";
+>>>>>>> c391793fd7aa75c642741fd30d8e14ae7d1ce9c7
             std::string matricola_2="";
             return matricola_1 + " " + matricola_2;
         }
@@ -63,8 +67,20 @@ namespace player {
          * @param situation configurazione o situazione di gioco
          * @return move::Move mossa scelta dal giocatore
          */
+<<<<<<< HEAD
         move::Move getMoveFromSit(game::Situation situation) {
             move::Move m; // Si noti che una mossa inizializzata in questo modo è di tipo RESIGN (mossa vuota)
+=======
+         move::Move getMoveFromSit(game::Situation situation)
+        {
+            move::Move m;
+            if (situation.pieRule())
+                m.kind = move::MoveKind::SWAP;
+            else
+            {
+                m = getMoveFromSit(situation.next(m));
+            }
+>>>>>>> c391793fd7aa75c642741fd30d8e14ae7d1ce9c7
             return m;
         }
     };
