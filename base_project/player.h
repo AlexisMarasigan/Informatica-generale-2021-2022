@@ -24,6 +24,20 @@ namespace player
         virtual move::Move getMoveFromSit(game::Situation situation) = 0;
     };
 
+    class Strategy
+    {
+    private:
+        game::Situation situation;
+
+    public:
+        std::queue<move::Move> strat;
+
+        Strategy(game::Situation *situation)
+        {
+            strat.empty();
+        }
+    };
+
     /**
      * CLASSE DA COMPLETARE PER IL PROGETTO.
      * Classe che implementa il giocatore di Hex.
@@ -55,7 +69,7 @@ namespace player
         std::string getIDs()
         {
             std::string matricola_1 = "1950540";
-            std::string matricola_2 = "";
+            std::string matricola_2 = "1963619";
             return matricola_1 + " " + matricola_2;
         }
 
@@ -76,7 +90,6 @@ namespace player
                 m.kind = move::MoveKind::SWAP;
             else
             {
-                m = getMoveFromSit(situation.next(m));
             }
             return m;
         }
